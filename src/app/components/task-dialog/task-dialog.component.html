@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>New Task</h1>
+<mat-dialog-content>
+	<mat-form-field>
+		<input
+			type="text"
+			matInput
+			placeholder="Title"
+			[(ngModel)]="task.title"
+			(keyup.enter)="onSave()"
+			required
+			minlength="3"
+			#titleControl="ngModel"
+		/>
+	</mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-content>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button
+		mat-button
+		[disabled]="titleControl.invalid"
+		mat-dialog-close
+		(click)="onSave()"
+	>
+		Save
+	</button>
+</mat-dialog-content>

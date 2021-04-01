@@ -38,7 +38,7 @@ export class TaskService {
 			: this.tasks.doc<Task>('').delete(); //Check se aquele uid do parametro existe, para que possa ser excluído direto de dentro do firebase
 	}
 
-	get(uid: string): Observable<Task> {
-		return this.tasks.doc<Task>(uid).valueChanges();
-	}
+	// get(uid: string): Promise<void> { //Corrigir
+	// 	return this.tasks.doc<Task>(uid).valueChanges();
+	// }
 }
