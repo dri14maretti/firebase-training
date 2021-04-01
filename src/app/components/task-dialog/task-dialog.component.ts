@@ -10,7 +10,7 @@ import { Task } from 'src/app/models/task.model';
 })
 export class TaskDialogComponent implements OnInit {
 	dialogTitle: string = 'New Task';
-	task: Task = { title: '' };
+	task: Task = { title: '', date: '' };
 
 	constructor(
 		@Inject(MAT_DIALOG_DATA) private data: any,

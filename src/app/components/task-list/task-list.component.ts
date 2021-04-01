@@ -17,7 +17,7 @@ export class TaskListComponent implements OnInit {
 	loading: boolean = true;
 
 	constructor(private taskService: TaskService, private dialog: MatDialog) {
-		this.selectedTask = { title: '' };
+		this.selectedTask = { title: '', date: '' };
 		this.tasks$ = this.taskService.tasks.valueChanges();
 	}
 

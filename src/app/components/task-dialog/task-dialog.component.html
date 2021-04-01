@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>{{ dialogTitle }}</h1>
-<mat-dialog-content>
-	<mat-form-field>
+<mat-dialog-content class="dialog-content">
+	<mat-form-field class="form-field">
 		<input
 			type="text"
 			matInput
@@ -10,6 +10,16 @@
 			required
 			minlength="3"
 			#titleControl="ngModel"
+		/>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input
+			type="date"
+			matInput
+			placeholder="Title"
+			[(ngModel)]="task.date"
+			(keyup.enter)="onSave()"
 		/>
 	</mat-form-field>
 </mat-dialog-content>

@@ -1,7 +1,16 @@
 <mat-list-item (click)="executeAction1()">
-	<p matLine>{{ task.title }}</p>
+	<p matLine>
+		{{ task.title }}
+	</p>
+
+	<p *ngIf="!task.done && task.date">
+		Terminar até: {{ task.date | date: 'dd/MM/yyyy' }}
+	</p>
+	<p class="concluded" *ngIf="task.done">Tarefa Concluída!</p>
+
 	<mat-slide-toggle
 		[checked]="task.done"
 		(click)="executeAction2(); $event.stopPropagation()"
+		class="toggle-button"
 	></mat-slide-toggle>
 </mat-list-item>

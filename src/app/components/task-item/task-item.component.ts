@@ -13,8 +13,10 @@ export class TaskItemComponent implements OnInit {
 
 	@Output() performTask = new EventEmitter<Task>();
 
+	dateSentence: string = `{{ task.date | date: 'dd/MM/yyyy' }}`;
+
 	constructor() {
-		this.task = { title: '' };
+		this.task = { title: '', date: '' };
 	}
 
 	ngOnInit(): void {}

@@ -27,6 +27,7 @@ export class TaskService {
 			uid,
 			title: task.title,
 			done: false,
+			date: task.date,
 		});
 	}
 
