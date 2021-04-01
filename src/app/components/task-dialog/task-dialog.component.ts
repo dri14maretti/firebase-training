@@ -9,7 +9,7 @@ import { Task } from 'src/app/models/task.model';
 	styleUrls: ['./task-dialog.component.scss'],
 })
 export class TaskDialogComponent implements OnInit {
-	dialogTitle: string = 'New Task';
+	dialogTitle: string = 'Nova Tarefa';
 	task: Task = { title: '', date: '' };
 
 	constructor(
@@ -20,7 +20,7 @@ export class TaskDialogComponent implements OnInit {
 
 	ngOnInit(): void {
 		if (this.data) {
-			this.dialogTitle = 'Update Task';
+			this.dialogTitle = 'Atualizar Tarefa';
 			this.task = this.data.task;
 		}
 	}

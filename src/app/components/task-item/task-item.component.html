@@ -4,7 +4,7 @@
 	</p>
 
 	<p *ngIf="!task.done && task.date">
-		Terminar até: {{ task.date | date: 'dd/MM/yyyy' }}
+		Prazo: {{ task.date | date: 'dd/MM/yyyy' }}
 	</p>
 	<p class="concluded" *ngIf="task.done">Tarefa Concluída!</p>
 

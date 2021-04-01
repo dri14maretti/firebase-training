@@ -4,7 +4,7 @@
 		<input
 			type="text"
 			matInput
-			placeholder="Title"
+			placeholder="Título"
 			[(ngModel)]="task.title"
 			(keyup.enter)="onSave()"
 			required
@@ -17,7 +17,7 @@
 		<input
 			type="date"
 			matInput
-			placeholder="Title"
+			placeholder="Data de Entrega"
 			[(ngModel)]="task.date"
 			(keyup.enter)="onSave()"
 		/>
@@ -25,8 +25,8 @@
 </mat-dialog-content>
 
 <mat-dialog-content>
-	<button mat-button mat-dialog-close>Cancel</button>
+	<button mat-button mat-dialog-close>Cancelar</button>
 	<button mat-button [disabled]="titleControl.invalid" (click)="onSave()">
-		Save
+		Salvar
 	</button>
 </mat-dialog-content>
