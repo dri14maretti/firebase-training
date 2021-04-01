@@ -6,3 +6,13 @@ html,
 body {
 	margin: 0;
 }
+
+.fab-bottom-right {
+	position: fixed !important;
+	right: 15px;
+	bottom: 15px;
+}
+
+.spinner {
+	margin: 30px auto 0 auto;
+}

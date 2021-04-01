@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>{{ dialogTitle }}</h1>
+<mat-dialog-content class="dialog-content">
+	<mat-form-field class="form-field">
+		<input
+			type="text"
+			matInput
+			placeholder="Title"
+			[(ngModel)]="task.title"
+			(keyup.enter)="onSave()"
+			required
+			minlength="3"
+			#titleControl="ngModel"
+		/>
+	</mat-form-field>
+
+	<mat-form-field>
+		<input
+			type="date"
+			matInput
+			placeholder="Title"
+			[(ngModel)]="task.date"
+			(keyup.enter)="onSave()"
+		/>
+	</mat-form-field>
+</mat-dialog-content>
+
+<mat-dialog-content>
+	<button mat-button mat-dialog-close>Cancel</button>
+	<button mat-button [disabled]="titleControl.invalid" (click)="onSave()">
+		Save
+	</button>
+</mat-dialog-content>

@@ -4,7 +4,7 @@ import {
 	AngularFirestoreCollection,
 } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
-import { promise } from 'selenium-webdriver';
+import { CollectionReference } from '@firebase/firestore-types';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,11 @@ export class TaskService {
 	tasks: AngularFirestoreCollection<Task>;
 
 	constructor(private db: AngularFirestore) {
-		this.tasks = this.db.collection<Task>('/tasks');
+		this.tasks = this.db.collection<Task>(
+			'/tasks',
+			(ref: CollectionReference) =>
+				ref.orderBy('done', 'asc').orderBy('title', 'asc')
+		);
 	}
 
 	create(task: Task): Promise<void> {
@@ -23,6 +27,7 @@ export class TaskService {
 			uid,
 			title: task.title,
 			done: false,
+			date: task.date,
 		});
 	}
 
@@ -38,7 +43,7 @@ export class TaskService {
 			: this.tasks.doc<Task>('').delete(); //Check se aquele uid do parametro existe, para que possa ser excluído direto de dentro do firebase
 	}
 
-	get(uid: string): Observable<Task> {
-		return this.tasks.doc<Task>(uid).valueChanges();
-	}
+	// get(uid: string): Promise<void> { //Corrigir
+	// 	return this.tasks.doc<Task>(uid).valueChanges();
+	// }
 }

@@ -9,24 +9,50 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
-import { MatToolbarModule } from '@angular/material/toolbar';
+import { TaskListComponent } from './components/task-list/task-list.component';
+import { TaskDialogComponent } from './components/task-dialog/task-dialog.component';
 import { TaskItemComponent } from './components/task-item/task-item.component';
+import { FormsModule } from '@angular/forms';
+
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
 import { MatLineModule } from '@angular/material/core';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { TaskListComponent } from './components/task-list/task-list.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
-	declarations: [AppComponent, TaskItemComponent, TaskListComponent],
+	declarations: [
+		AppComponent,
+		TaskItemComponent,
+		TaskListComponent,
+		TaskDialogComponent,
+	],
+
+	// entryComponents: [TaskDialogComponent],
+
 	imports: [
+		BrowserAnimationsModule,
 		AppRoutingModule,
 		AngularFireModule.initializeApp(environment.firebase),
-		AngularFirestoreModule,
+		AngularFirestoreModule.enablePersistence(),
+		FormsModule,
 		MatListModule,
-		BrowserAnimationsModule,
 		MatLineModule,
 		MatSlideToggleModule,
 		MatToolbarModule,
+		MatButtonModule,
+		MatIconModule,
+		MatDialogModule,
+		MatInputModule,
+		MatFormFieldModule,
+		MatMenuModule,
+		MatProgressSpinnerModule,
 	],
 	providers: [TaskService],
 	bootstrap: [AppComponent],
