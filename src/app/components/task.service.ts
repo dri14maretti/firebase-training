@@ -4,7 +4,7 @@ import {
 	AngularFirestoreCollection,
 } from 'angularfire2/firestore';
 import { Injectable } from '@angular/core';
-import { promise } from 'selenium-webdriver';
+import { CollectionReference } from '@firebase/firestore-types';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -14,7 +14,11 @@ export class TaskService {
 	tasks: AngularFirestoreCollection<Task>;
 
 	constructor(private db: AngularFirestore) {
-		this.tasks = this.db.collection<Task>('/tasks');
+		this.tasks = this.db.collection<Task>(
+			'/tasks',
+			(ref: CollectionReference) =>
+				ref.orderBy('done', 'asc').orderBy('title', 'asc')
+		);
 	}
 
 	create(task: Task): Promise<void> {

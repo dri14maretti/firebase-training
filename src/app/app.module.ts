@@ -23,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
 	declarations: [
@@ -38,7 +40,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 		BrowserAnimationsModule,
 		AppRoutingModule,
 		AngularFireModule.initializeApp(environment.firebase),
-		AngularFirestoreModule,
+		AngularFirestoreModule.enablePersistence(),
+		FormsModule,
 		MatListModule,
 		MatLineModule,
 		MatSlideToggleModule,
@@ -48,7 +51,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 		MatDialogModule,
 		MatInputModule,
 		MatFormFieldModule,
-		FormsModule,
+		MatMenuModule,
+		MatProgressSpinnerModule,
 	],
 	providers: [TaskService],
 	bootstrap: [AppComponent],
